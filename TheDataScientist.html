@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Data Scientist Booklet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #b30000;
+      --secondary: #1a1a1a;
+      --accent: #ffffff;
+      --gray-bg: #f5f5f5;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--accent);
+      color: #111;
+    }
+    header {
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      background: transparent;
+    }
+    header img {
+      height: 40px;
+      margin-right: 0.5rem;
+    }
+    header span {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #333;
+    }
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 1.5rem;
+      padding-bottom: 1rem;
+    }
+    .carousel::-webkit-scrollbar {
+      height: 8px;
+    }
+    .carousel::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-radius: 4px;
+    }
+
+    .card {
+      scroll-snap-align: start;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      min-width: 300px;
+      max-width: 300px;
+      flex-shrink: 0;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .card a {
+      display: block;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .card a:hover img {
+      transform: scale(1.05);
+    }
+
+    .card .info {
+      padding: 1rem;
+    }
+    .card .info h3 {
+      font-size: 1.1rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    .card .info p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    .details {
+      margin-top: 2rem;
+    }
+    .details h1 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    .details p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    .enroll-btn {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background-color: var(--primary);
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+    .enroll-btn:hover {
+      background-color: #8e0000;
+    }
+    footer {
+      margin-top: 3rem;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.85rem;
+      background: var(--gray-bg);
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html">
+      <img src="P.png" alt="Pathline Academy logo" />
+    </a>
+    <span>Pathline Academy</span>
+  </header>
+
+  <div class="container">
+    <div class="carousel">
+      <div class="card">
+        <a href="cont.jpg" data-lightbox="carousel" data-title="Content Overview">
+          <img src="cont.jpg" alt="Content Overview">
+        </a>
+        <div class="info">
+          <h3>Content Overview</h3>
+          <p>Detailed Content Breakdown</p>
+        </div>
+      </div>
+      <div class="card">
+        <a href="det.jpg" data-lightbox="carousel" data-title="Zoom in">
+          <img src="det.jpg" alt="Zoom in">
+        </a>
+        <div class="info">
+          <h3>Zoom in</h3>
+          <p>Real Sample & Disclaimer</p>
+        </div>
+      </div>
+      <div class="card">
+        <a href="ear.jpg" data-lightbox="carousel" data-title="Early Birds Offer">
+          <img src="ear.jpg" alt="Early Birds">
+        </a>
+        <div class="info">
+          <h3>Early Birds Special Offer & IDs</h3>
+          <p>The Earlier, The Cheaper, The Better.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="details">
+      <h1>The Data Scientist Booklet</h1>
+      <p>📘 <strong>About This Booklet</strong></p>
+      <p>This is your first step toward a data science career — a starter-level guide designed to take you from zero to job-ready.</p>
+
+      <p><strong>✅ What’s Inside:</strong><br>
+      • <strong>Pre-Roadmap Guidance:</strong> Understand what data science really involves before you dive in.<br>
+      • <strong>Beginner-to-Job Ready Roadmap:</strong> Structured, no-fluff learning path.<br>
+      • <strong>Job Requirement Compilation:</strong> Based on real listings from LinkedIn, Wuzzuf, Glassdoor.<br>
+      • <strong>Trusted Learning Resources:</strong> All free — YouTube, blogs, and articles tailored for beginners.
+      </p>
+
+      <p><strong>⏳ Why This Booklet Saves You Time</strong><br>
+      Say goodbye to:<br>
+      ❌ Endless tutorial searching<br>
+      ❌ Not knowing what to learn next<br>
+      ❌ Filtering out outdated or wrong info<br>
+      Instead, you get a clear path and curated material.</p>
+
+      <p><strong>📄 Details:</strong><br>
+      • Format: Digital PDF<br>
+      • Length: ~20 pages<br>
+      • Timeframe: Designed to guide your learning for several months<br>
+      • Audience: Complete beginners, students, and aspiring data scientists<br>
+      • Price: <strong>300 EGP</strong><br>
+      </p>
+
+      <a class="enroll-btn" href="https://forms.gle/bPQAPpECRwttKW9s8" target="_blank">Buy Booklet</a>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Pathline Training Academy. All rights reserved.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox.min.js"></script>
+</body>
+</html>

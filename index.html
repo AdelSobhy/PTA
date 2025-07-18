@@ -80,6 +80,39 @@ header span {
       max-width: 600px;
       text-shadow: 1px 1px 5px #000;
     }
+    .social-icons {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.1);
+  color: var(--primary);
+}
+
+.material-symbols-outlined {
+  font-size: 32px;
+  color: inherit;
+}
+
+.social-text {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+
     .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -145,6 +178,8 @@ header span {
       }
     }
   </style>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
 </head>
 <body>
   <header>
@@ -155,9 +190,20 @@ header span {
   </header>
 
   <section class="hero">
-    <h2>Elevate Your Career with Practical Skills</h2>
-    <p>Join 600+ students who chose Pathline to gain tech knowledge from top tier instructors.</p>
-  </section>
+  <h2>Elevate Your Career with Practical Skills</h2>
+  <p>Join 600+ students who chose Pathline to gain tech knowledge from top tier instructors.</p>
+  <div class="social-icons">
+    <a href="https://eg.linkedin.com/company/pathline-training-academy" target="_blank" aria-label="LinkedIn">
+      <span class="material-symbols-outlined">business_center</span>
+      <span class="social-text">LinkedIn</span>
+    </a>
+    <a href="https://www.tiktok.com/@adel.sobhy?is_from_webapp=1&sender_device=pc" target="_blank" aria-label="TikTok">
+      <span class="material-symbols-outlined">play_circle</span>
+      <span class="social-text">TikTok</span>
+    </a>
+  </div>
+</section>
+
 
   <section class="cards">
     <div class="card">

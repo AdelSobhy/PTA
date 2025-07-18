@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>The Data Scientist Booklet</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css" rel="stylesheet">
@@ -135,6 +135,69 @@
       background: var(--gray-bg);
       color: #555;
     }
+
+    /* Responsive Fixes for Mobile */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: row;
+        justify-content: center;
+        padding: 1rem;
+      }
+
+      header img {
+        height: 30px;
+      }
+
+      header span {
+        font-size: 1rem;
+        text-align: center;
+      }
+
+      .container {
+        padding: 1rem;
+      }
+
+      .card {
+        min-width: 85%;
+        max-width: 85%;
+      }
+
+      .card img {
+        height: 160px;
+      }
+
+      .card .info h3 {
+        font-size: 1rem;
+      }
+
+      .card .info p {
+        font-size: 0.9rem;
+      }
+
+      .details h1 {
+        font-size: 1.5rem;
+        text-align: center;
+      }
+
+      .details p {
+        font-size: 1rem;
+        text-align: justify;
+      }
+
+      .enroll-btn {
+        display: block;
+        text-align: center;
+        margin: auto;
+        margin-top: 1rem;
+        width: fit-content;
+        font-size: 0.95rem;
+      }
+
+      footer {
+        font-size: 0.8rem;
+        padding: 0.8rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -182,25 +245,25 @@
       <p>This is your first step toward a data science career — a starter-level guide designed to take you from zero to job-ready.</p>
 
       <p><strong>✅ What’s Inside:</strong><br>
-      • <strong>Pre-Roadmap Guidance:</strong> Understand what data science really involves before you dive in.<br>
-      • <strong>Beginner-to-Job Ready Roadmap:</strong> Structured, no-fluff learning path.<br>
-      • <strong>Job Requirement Compilation:</strong> Based on real listings from LinkedIn, Wuzzuf, Glassdoor.<br>
-      • <strong>Trusted Learning Resources:</strong> All free — YouTube, blogs, and articles tailored for beginners.
+        • <strong>Pre-Roadmap Guidance:</strong> Understand what data science really involves before you dive in.<br>
+        • <strong>Beginner-to-Job Ready Roadmap:</strong> Structured, no-fluff learning path.<br>
+        • <strong>Job Requirement Compilation:</strong> Based on real listings from LinkedIn, Wuzzuf, Glassdoor.<br>
+        • <strong>Trusted Learning Resources:</strong> All free — YouTube, blogs, and articles tailored for beginners.
       </p>
 
       <p><strong>⏳ Why This Booklet Saves You Time</strong><br>
-      Say goodbye to:<br>
-      ❌ Endless tutorial searching<br>
-      ❌ Not knowing what to learn next<br>
-      ❌ Filtering out outdated or wrong info<br>
-      Instead, you get a clear path and curated material.</p>
+        Say goodbye to:<br>
+        ❌ Endless tutorial searching<br>
+        ❌ Not knowing what to learn next<br>
+        ❌ Filtering out outdated or wrong info<br>
+        Instead, you get a clear path and curated material.</p>
 
       <p><strong>📄 Details:</strong><br>
-      • Format: Digital PDF<br>
-      • Length: ~20 pages<br>
-      • Timeframe: Designed to guide your learning for several months<br>
-      • Audience: Complete beginners, students, and aspiring data scientists<br>
-      • Price: <strong>300 EGP</strong><br>
+        • Format: Digital PDF<br>
+        • Length: ~20 pages<br>
+        • Timeframe: Designed to guide your learning for several months<br>
+        • Audience: Complete beginners, students, and aspiring data scientists<br>
+        • Price: <strong>300 EGP</strong><br>
       </p>
 
       <a class="enroll-btn" href="https://forms.gle/bPQAPpECRwttKW9s8" target="_blank">Buy Booklet</a>

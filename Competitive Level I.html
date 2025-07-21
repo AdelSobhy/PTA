@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Competitive Programming LVL I | Pathline Academy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #b30000;
+      --primary-light: #ff4d4d;
+      --primary-dark: #8b0000;
+      --secondary: #1a1a1a;
+      --secondary-light: #333;
+      --accent: #ffffff;
+      --light-gray: #f8f8f8;
+      --medium-gray: #e0e0e0;
+      --dark-text: #111;
+      --text-light: #666;
+      --gradient-1: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      --gradient-2: linear-gradient(45deg, var(--primary), var(--primary-light));
+      --glass: rgba(255, 255, 255, 0.1);
+      --glass-border: rgba(255, 255, 255, 0.2);
+      --shadow-sm: 0 4px 16px rgba(0,0,0,0.08);
+      --shadow-md: 0 8px 32px rgba(0,0,0,0.12);
+      --shadow-lg: 0 16px 64px rgba(0,0,0,0.16);
+      --shadow-xl: 0 24px 96px rgba(179,0,0,0.15);
+      --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--accent);
+      color: var(--dark-text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Enhanced Header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(179,0,0,0.1);
+      z-index: 1000;
+      transition: var(--transition);
+    }
+
+    header.scrolled {
+      padding: 0.75rem 2rem;
+      background: rgba(255,255,255,0.98);
+      box-shadow: var(--shadow-md);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      position: relative;
+    }
+
+    header img {
+      height: 45px;
+      width: auto;
+      transition: var(--transition);
+      filter: drop-shadow(0 2px 4px rgba(179,0,0,0.2));
+    }
+
+    header.scrolled img {
+      height: 40px;
+    }
+
+    .logo-text {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--secondary);
+      transition: var(--transition);
+      background: linear-gradient(45deg, var(--secondary), var(--primary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .logo-text span {
+      color: var(--primary);
+    }
+
+    /* Course Hero */
+    .course-hero {
+      padding: 8rem 2rem 4rem;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: var(--accent);
+      text-align: center;
+    }
+
+    .course-hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .course-hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .course-hero p {
+      font-size: 1.2rem;
+      font-weight: 300;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+    }
+
+    .enroll-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2rem;
+      background: var(--accent);
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 6px;
+      transition: var(--transition);
+      box-shadow: var(--shadow-md);
+    }
+
+    .enroll-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* Course Content */
+    .course-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    .gallery-section {
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      color: var(--secondary);
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--primary);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .gallery-item {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .gallery-item a {
+      display: block;
+      height: 100%;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.03);
+    }
+
+    .gallery-item .caption {
+      padding: 1rem;
+      background: var(--accent);
+    }
+
+    .gallery-item h3 {
+      font-size: 1.1rem;
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    .gallery-item p {
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    .details-section {
+      margin-top: 3rem;
+    }
+
+    .details-content {
+      background: var(--light-gray);
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .details-content h2 {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+
+    .details-content p {
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .details-content ul {
+      margin-bottom: 1.5rem;
+      padding-left: 1.5rem;
+    }
+
+    .details-content li {
+      margin-bottom: 0.75rem;
+      line-height: 1.6;
+    }
+
+    .highlight-box {
+      background: rgba(179, 0, 0, 0.05);
+      border-left: 4px solid var(--primary);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .highlight-box p {
+      margin-bottom: 0;
+    }
+
+    .cta-section {
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    /* Enhanced Footer */
+    footer {
+      background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
+      color: var(--accent);
+      padding: 4rem 2rem 2rem;
+      position: relative;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+      text-align: left;
+      margin-bottom: 2rem;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-logo img {
+      height: 45px;
+      filter: drop-shadow(0 2px 4px rgba(179,0,0,0.3));
+    }
+
+    .footer-logo-text {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--accent);
+      background: linear-gradient(45deg, var(--accent), var(--primary-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .footer-about p {
+      opacity: 0.9;
+      font-weight: 400;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .footer-links h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--accent);
+      position: relative;
+      padding-bottom: 0.75rem;
+    }
+
+    .footer-links h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--gradient-1);
+      border-radius: 2px;
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 1rem;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      transition: var(--transition);
+      display: inline-block;
+      font-weight: 500;
+      position: relative;
+    }
+
+    .footer-links a::before {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary-light);
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--primary-light);
+      transform: translateX(8px);
+    }
+
+    .footer-links a:hover::before {
+      width: 100%;
+    }
+
+    .footer-bottom {
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* Scroll Animations */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease;
+    }
+
+    .fade-up.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      header {
+        padding: 1rem 1.5rem;
+      }
+
+      .course-hero {
+        padding: 7rem 1.5rem 3rem;
+      }
+
+      .course-container {
+        padding: 2rem 1.5rem;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+      }
+
+      .footer-links h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .footer-links a:hover {
+        transform: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .course-hero {
+        padding: 6rem 1rem 2rem;
+      }
+      
+      .course-hero h1 {
+        font-size: 1.6rem;
+      }
+      
+      .enroll-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="header">
+    <a href="index.html" class="logo-container">
+      <img src="P.png" alt="Pathline Logo">
+      <span class="logo-text">Pathline<span> Academy</span></span>
+    </a>
+  </header>
+
+  <section class="course-hero">
+    <div class="course-hero-content">
+      <h1>Competitive Programming LVL I - Beginner Course</h1>
+      <p>Master C++ Fundamentals & Competitive Programming Basics with our comprehensive beginner course.</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScSO8PhsHazCXDarx8Tx1YisNIfsiNkDuc_EpsFrEMtlFyBmw/viewform" target="_blank" class="enroll-btn">
+        <span class="material-symbols-outlined">rocket_launch</span>
+        Enroll Now
+      </a>
+    </div>
+  </section>
+
+  <div class="course-container">
+    <section class="gallery-section">
+      <h2 class="section-title">Course Highlights</h2>
+      <div class="gallery">
+        <div class="gallery-item">
+          <a href="5.png" data-lightbox="gallery" data-title="Content Overview">
+            <img src="5.png" alt="Live Session Demo">
+            <div class="caption">
+              <h3>Content Overview</h3>
+              <p>Detailed Content Breakdown</p>
+            </div>
+          </a>
+        </div>
+        
+        <div class="gallery-item">
+          <a href="4.png" data-lightbox="gallery" data-title="Official Poster">
+            <img src="4.png" alt="Problem Solving Breakdown">
+            <div class="caption">
+              <h3>Official Poster</h3>
+              <p>Find this Poster on @Pathline_Training_Academy on Linkedin</p>
+            </div>
+          </a>
+        </div>
+        
+        <div class="gallery-item">
+          <a href="Payday.png" data-lightbox="gallery" data-title="Top Performer Badge">
+            <img src="Payday.png" alt="Top Performer Badge">
+            <div class="caption">
+              <h3>Top Performer Awards</h3>
+              <p>2,000 EGP for top performers</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="details-section">
+      <div class="details-content">
+        <h2>About This Course</h2>
+        <p>
+          This course is your gateway into the world of programming contests and algorithmic thinking.
+          Taught by top university instructors, it covers problem-solving strategies, data structures, 
+          and foundational logic through hands-on challenges. You'll train on platforms like Codeforces 
+          and LeetCode and receive feedback on real assignments.
+        </p>
+        
+        <div class="highlight-box">
+          <p>Gain practical skills that will help you excel in technical interviews and competitive programming competitions.</p>
+        </div>
+
+        <h2>What's Included</h2>
+        <ul>
+          <li>6 Weeks Live Program</li>
+          <li>Weekly coding tasks and competitions</li>
+          <li>Access to exclusive PathlineTA Perks (Free Booklets & Trainings)</li>
+          <li>Authentic Certificate of Completion</li>
+          <li>Top performers receive a 2,000 EGP pool award</li>
+          <li>24/7 support and mentorship from instructors</li>
+          <li>Access to a private community for networking and collaboration</li>
+          <li>No Risk ... You pay after the Orientation Session</li>
+        </ul>
+      </div>
+      
+      <div class="cta-section">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScSO8PhsHazCXDarx8Tx1YisNIfsiNkDuc_EpsFrEMtlFyBmw/viewform" target="_blank" class="enroll-btn">
+          <span class="material-symbols-outlined">rocket_launch</span>
+          Enroll Now
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-about fade-up">
+        <div class="footer-logo">
+          <img src="P.png" alt="Pathline Academy">
+          <span class="footer-logo-text">Pathline<span> Academy</span></span>
+        </div>
+        <p>Empowering the next generation of tech professionals with practical, industry-relevant skills and knowledge that make a real difference in their careers.</p>
+      </div>
+      
+      <div class="footer-links fade-up">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="Competitive Level I.html">Competitive Programming</a></li>
+          <li><a href="python 101.html">Python 101</a></li>
+          <li><a href="The Data Scientist Booklet.html">Data Scientist Booklet</a></li>
+          <li><a href="index.html">About Us</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links fade-up">
+        <h3>Connect With Us</h3>
+        <ul>
+          <li><a href="https://eg.linkedin.com/company/pathline-training-academy" target="_blank">LinkedIn</a></li>
+          <li><a href="https://www.tiktok.com/@adel.sobhy?is_from_webapp=1&sender_device=pc" target="_blank">TikTok</a></li>
+          <li><a href="https://discord.gg/p85a8yS5xm" target="_blank">Discord</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      &copy; 2025 Pathline Training Academy. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox.min.js"></script>
+  <script>
+    // Header scroll effect
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-up').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
